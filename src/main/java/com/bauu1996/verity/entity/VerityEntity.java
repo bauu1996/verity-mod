@@ -20,12 +20,11 @@ public class VerityEntity extends PathfinderMob {
 		this.setCustomName(Component.literal("Verity"));
 		this.setCustomNameVisible(true);
 		this.setPersistenceRequired();
-		this.setInvulnerable(true);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return PathfinderMob.createMobAttributes()
-			.add(Attributes.MAX_HEALTH, 20)
+			.add(Attributes.MAX_HEALTH, 1000)
 			.add(Attributes.MOVEMENT_SPEED, 0.35);
 	}
 
