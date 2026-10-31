@@ -81,7 +81,11 @@ public class VerityBrain {
 
 	private static void show(Component component) {
 		Minecraft mc = Minecraft.getInstance();
-		mc.execute(() -> mc.gui.getChat().addMessage(component));
+		mc.execute(() -> {
+			if (mc.player != null) {
+				mc.player.sendSystemMessage(component);
+			}
+		});
 	}
 
 	private static void showVerity(String text) {
@@ -90,6 +94,10 @@ public class VerityBrain {
 
 	private static void showSystem(String text) {
 		show(Component.literal("[Verity] " + text).withStyle(ChatFormatting.GRAY));
+	}
+
+	public static void notice(String text) {
+		showSystem(text);
 	}
 
 	public static void ask(String text) {
